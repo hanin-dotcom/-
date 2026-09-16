@@ -1,390 +1,318 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بصمة حنين</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="./manifest.json">
 
-<style>
-*{box-sizing:border-box}
-body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#f5f7f2;
- color:#24352b;
- transition:.3s
-}
-body.dark{background:#18221d;color:#eee}
-header{
- background:#1f5c45;
- color:white;
- text-align:center;
- padding:28px 15px;
-}
-header h1{margin:0;font-size:34px}
-header p{margin:8px 0 0}
+  <title>بصمة حنين</title>
 
-.container{max-width:900px;margin:auto;padding:18px}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-.card,.dedication,.content{
- background:white;
- border-radius:18px;
- padding:20px;
- margin-bottom:18px;
- box-shadow:0 3px 12px rgba(0,0,0,.08)
-}
-.dark .card,.dark .dedication,.dark .content{
- background:#25332b;color:#eee
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f5ef;
+      color: #333;
+      transition: 0.3s;
+    }
 
-.dedication{text-align:center;line-height:2}
-.dedication h2{color:#1f5c45}
+    body.dark {
+      background: #171717;
+      color: #eee;
+    }
 
-.menu{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:14px
-}
-.card{text-align:center;cursor:pointer}
-.card:hover{transform:translateY(-3px)}
-.icon{font-size:38px}
-.card h3{color:#1f5c45;margin:8px}
-.dark .card h3{color:#8ed0af}
+    header {
+      text-align: center;
+      padding: 25px 15px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+    }
 
-.content{display:none;line-height:2}
-.content h2{text-align:center;color:#1f5c45}
+    body.dark header {
+      background: #222;
+      border-color: #444;
+    }
 
-.item{
- background:#f0f5f0;
- border-radius:12px;
- padding:15px;
- margin:10px 0;
- text-align:center
-}
-.dark .item{background:#314139}
+    header h1 {
+      margin: 0;
+      color: #2e7d62;
+      font-size: 30px;
+    }
 
-button{
- border:0;
- border-radius:10px;
- padding:11px 18px;
- background:#1f5c45;
- color:white;
- font-size:15px;
- margin:5px;
- cursor:pointer
-}
+    header p {
+      margin: 8px 0 0;
+    }
 
-.search{
- width:100%;
- padding:13px;
- border:1px solid #ccc;
- border-radius:10px;
- margin-bottom:15px;
- font-size:16px
-}
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
 
-footer{text-align:center;padding:25px;color:#777}
-.small{font-size:14px;color:#777}
-</style>
+    .search {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    body.dark .search {
+      background: #292929;
+      color: white;
+      border-color: #555;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .card {
+      padding: 20px;
+      border: none;
+      border-radius: 15px;
+      background: white;
+      color: #333;
+      font-size: 17px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    body.dark .card {
+      background: #292929;
+      color: #eee;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      line-height: 2;
+    }
+
+    body.dark section {
+      background: #242424;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    section h2 {
+      color: #2e7d62;
+    }
+
+    .back {
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .dhikr {
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      background: #f1eee7;
+      cursor: pointer;
+    }
+
+    body.dark .dhikr {
+      background: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+    }
+
+    @media (max-width: 500px) {
+      .menu {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<h1>🌙 بصمة حنين</h1>
-<p>ذكرٌ يبقى، وأثرٌ لا يزول 🤍</p>
+  <h1>بصمة حنين</h1>
+  <p>مساحة صغيرة لذكر الله والطمأنينة 🌿</p>
 </header>
 
 <div class="container">
 
-<!-- الإهداء -->
-<section class="dedication">
-<h2>🌿 إهداء</h2>
+  <input
+    class="search"
+    type="text"
+    placeholder="ابحثي في بصمة حنين..."
+    oninput="searchContent(this.value)"
+  >
 
-<p><strong>إلى والدَيّ الغاليين</strong></p>
+  <div class="menu">
+    <button class="card" onclick="openSection('quran')">📖 القرآن الكريم</button>
+    <button class="card" onclick="openSection('adhkar')">🌿 الأذكار</button>
+    <button class="card" onclick="openSection('duaa')">🤲 الأدعية</button>
+    <button class="card" onclick="openSection('books')">📚 كتب دينية أنصح بقراءتها</button>
+    <button class="card" onclick="openSection('ayah')">✨ آية اليوم</button>
+    <button class="card" onclick="openSection('good')">💚 أعمال صالحة</button>
+    <button class="card" onclick="openSection('favorites')">⭐ المفضلة</button>
+    <button class="card" onclick="toggleDark()">🌙 الوضع الليلي</button>
+  </div>
 
-<p>
-إلى أمي الغالية <strong>ش.خ</strong> 🤍<br>
-رحمها الله رحمةً واسعة وأسكنها فسيح جناته.
-</p>
+  <section id="quran">
+    <button class="back" onclick="closeSections()">← العودة</button>
+    <h2>📖 القرآن الكريم</h2>
+    <p>اقرئي من القرآن الكريم ما تيسر لكِ، واجعلي لكِ وردًا يوميًا ولو كان قليلًا.</p>
+    <p>﴿أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ﴾</p>
+  </section>
 
-<p>
-وإلى أبي الغالي <strong>aek .meb</strong> 🤍<br>
-أدامه الله وحفظه وبارك في عمره.
-</p>
+  <section id="adhkar">
+    <button class="back" onclick="closeSections()">← العودة</button>
+    <h2>🌿 الأذكار</h2>
 
-<p>
-وإلى نفسي 🤍<br>
-إن توفاني الله، فأسأل الله أن يجعل هذا العمل
-صدقةً جاريةً عني، وأن يتقبله مني.
-</p>
+    <div class="dhikr" onclick="countDhikr(this)">
+      سبحان الله
+    </div>
 
-<p>🤲 اللهم اجعلها بصمة خير وأثرًا طيبًا.</p>
-</section>
+    <div class="dhikr" onclick="countDhikr(this)">
+      الحمد لله
+    </div>
 
-<!-- البحث -->
-<input
- class="search"
- id="search"
- type="text"
- placeholder="🔍 ابحثي في بصمة حنين..."
- onkeyup="searchContent()">
+    <div class="dhikr" onclick="countDhikr(this)">
+      الله أكبر
+    </div>
 
-<!-- القائمة -->
-<div class="menu">
+    <div class="dhikr" onclick="countDhikr(this)">
+      لا إله إلا الله
+    </div>
+  </section>
 
-<div class="card" onclick="openSection('quran')">
-<div class="icon">📖</div>
-<h3>القرآن الكريم</h3>
-<p>آيات للتدبر</p>
-</div>
+  <section id="duaa">
+    <button class="back" onclick="closeSections()">← العودة</button>
+    <h2>🤲 الأدعية</h2>
 
-<div class="card" onclick="openSection('adhkar')">
-<div class="icon">📿</div>
-<h3>أذكاري</h3>
-<p>أذكار وأعداد التسبيح</p>
-</div>
+    <p>
+      اللهم اجعل في قلبي نورًا، وفي صدري راحة، وفي أيامي بركة.
+    </p>
 
-<div class="card" onclick="openSection('duaa')">
-<div class="icon">🤲</div>
-<h3>دعائي اليوم</h3>
-<p>أدعية مختارة</p>
-</div>
+    <p>
+      ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار.
+    </p>
+  </section>
 
-<div class="card" onclick="openSection('books')">
-<div class="icon">📚</div>
-<h3>كتب دينية</h3>
-<p>كتب مقترحة للقراءة</p>
-</div>
+  <section id="books">
+    <button class="back" onclick="closeSections()">← العودة</button>
+    <h2>📚 كتب دينية أنصح بقراءتها</h2>
 
-<div class="card" onclick="openSection('ayah')">
-<div class="icon">✨</div>
-<h3>آية اليوم</h3>
-<p>آية للتدبر</p>
-</div>
+    <p>• الرحيق المختوم — في السيرة النبوية.</p>
+    <p>• الأربعون النووية — أحاديث جامعة.</p>
+    <p>• رياض الصالحين — في الأخلاق والعبادات.</p>
+    <p>• تفسير السعدي — تفسير مبسط للقرآن الكريم.</p>
+  </section>
 
-<div class="card" onclick="openSection('good')">
-<div class="icon">🌿</div>
-<h3>أعمال صالحة</h3>
-<p>أفكار للخير</p>
-</div>
+  <section id="ayah">
+    <button class="back" onclick="closeSections()">← العودة</button>
+    <h2>✨ آية اليوم</h2>
+    <p>
+      ﴿فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا﴾
+    </p>
+  </section>
 
-<div class="card" onclick="openSection('favorites')">
-<div class="icon">❤️</div>
-<h3>المفضلة</h3>
-<p>ما حفظته</p>
-</div>
+  <section id="good">
+    <button class="back" onclick="closeSections()">← العودة</button>
+    <h2>💚 أعمال صالحة</h2>
 
-<div class="card" onclick="toggleDark()">
-<div class="icon">🌙</div>
-<h3>الوضع الليلي</h3>
-<p>راحة للعين</p>
-</div>
+    <p>🌿 بر الوالدين.</p>
+    <p>🌿 الصدقة ولو بالقليل.</p>
+    <p>🌿 مساعدة شخص محتاج.</p>
+    <p>🌿 قراءة القرآن.</p>
+    <p>🌿 إدخال السرور على قلب شخص.</p>
+  </section>
 
-</div>
-
-<!-- القرآن -->
-<section id="quran" class="content">
-<h2>📖 القرآن الكريم</h2>
-
-<div class="item">
-<p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-<p>
-الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝
-الرَّحْمَٰنِ الرَّحِيمِ ۝
-مَالِكِ يَوْمِ الدِّينِ
-</p>
-<button onclick="favorite('سورة الفاتحة')">❤️ حفظ</button>
-</div>
-
-<button onclick="closeSections()">إغلاق</button>
-</section>
-
-<!-- الأذكار -->
-<section id="adhkar" class="content">
-<h2>📿 أذكاري</h2>
-
-<div class="item">
-<p>سبحان الله وبحمده</p>
-<button onclick="countDhikr()">تسبيح</button>
-<p>العدد: <strong id="counter">0</strong></p>
-</div>
-
-<div class="item">
-<p>أستغفر الله وأتوب إليه</p>
-<button onclick="favorite('أستغفر الله وأتوب إليه')">❤️ حفظ</button>
-</div>
-
-<div class="item">
-<p>لا إله إلا الله وحده لا شريك له</p>
-<button onclick="favorite('لا إله إلا الله وحده لا شريك له')">❤️ حفظ</button>
-</div>
-
-<button onclick="closeSections()">إغلاق</button>
-</section>
-
-<!-- الدعاء -->
-<section id="duaa" class="content">
-<h2>🤲 دعائي اليوم</h2>
-
-<div class="item">
-<p>
-رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً
-وَفِي الْآخِرَةِ حَسَنَةً
-وَقِنَا عَذَابَ النَّارِ
-</p>
-<button onclick="favorite('ربنا آتنا في الدنيا حسنة')">❤️ حفظ</button>
-</div>
-
-<div class="item">
-<p>رَبِّ زِدْنِي عِلْمًا</p>
-<button onclick="favorite('رب زدني علمًا')">❤️ حفظ</button>
-</div>
-
-<button onclick="closeSections()">إغلاق</button>
-</section>
-
-<!-- الكتب -->
-<section id="books" class="content">
-<h2>📚 كتب دينية</h2>
-
-<div class="item">
-<strong>الرحيق المختوم</strong>
-<p>كتاب في السيرة النبوية.</p>
-</div>
-
-<div class="item">
-<strong>رياض الصالحين</strong>
-<p>مجموعة من الأحاديث في أبواب متنوعة من الخير والأخلاق والعبادات.</p>
-</div>
-
-<div class="item">
-<strong>الأربعون النووية</strong>
-<p>أحاديث جامعة في أصول الدين وآدابه.</p>
-</div>
-
-<div class="item">
-<strong>حصن المسلم</strong>
-<p>كتاب يجمع عددًا من الأذكار والأدعية.</p>
-</div>
-
-<button onclick="closeSections()">إغلاق</button>
-</section>
-
-<!-- آية اليوم -->
-<section id="ayah" class="content">
-<h2>✨ آية اليوم</h2>
-
-<div class="item">
-<p>
-﴿ فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝
-إِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾
-</p>
-<p class="small">سورة الشرح</p>
-<button onclick="favorite('فإن مع العسر يسرًا')">❤️ حفظ</button>
-</div>
-
-<button onclick="closeSections()">إغلاق</button>
-</section>
-
-<!-- أعمال صالحة -->
-<section id="good" class="content">
-<h2>🌿 أعمال صالحة</h2>
-
-<div class="item">🤍 بر الوالدين</div>
-<div class="item">🤲 الدعاء للوالدين</div>
-<div class="item">💧 سقي الماء</div>
-<div class="item">😊 إدخال السرور على مسلم</div>
-<div class="item">📖 قراءة القرآن</div>
-<div class="item">❤️ الصدقة ولو بالقليل</div>
-
-<button onclick="closeSections()">إغلاق</button>
-</section>
-
-<!-- المفضلة -->
-<section id="favorites" class="content">
-<h2>❤️ المفضلة</h2>
-<div id="favoriteList" class="item">
-لا توجد عناصر محفوظة بعد.
-</div>
-<button onclick="closeSections()">إغلاق</button>
-</section>
+  <section id="favorites">
+    <button class="back" onclick="closeSections()">← العودة</button>
+    <h2>⭐ المفضلة</h2>
+    <p>يمكنكِ إضافة الأشياء التي تحبين الرجوع إليها هنا لاحقًا.</p>
+  </section>
 
 </div>
 
 <footer>
-<p>🌙 بصمة حنين</p>
-<p>ذكرٌ يبقى، وأثرٌ لا يزول 🤍</p>
+  بصمة حنين 🤍
 </footer>
 
 <script>
+  function openSection(id) {
+    document.querySelectorAll("section").forEach(function(section) {
+      section.classList.remove("active");
+    });
 
-let count = 0;
+    document.getElementById(id).classList.add("active");
 
-function openSection(id){
- document.querySelectorAll('.content').forEach(x=>{
-   x.style.display='none';
- });
- document.getElementById(id).style.display='block';
- window.scrollTo({
-   top:document.getElementById(id).offsetTop-20,
-   behavior:'smooth'
- });
-}
+    window.scrollTo({
+      top: document.getElementById(id).offsetTop - 20,
+      behavior: "smooth"
+    });
+  }
 
-function closeSections(){
- document.querySelectorAll('.content').forEach(x=>{
-   x.style.display='none';
- });
-}
+  function closeSections() {
+    document.querySelectorAll("section").forEach(function(section) {
+      section.classList.remove("active");
+    });
+  }
 
-function countDhikr(){
- count++;
- document.getElementById('counter').textContent=count;
-}
+  function countDhikr(element) {
+    let count = Number(element.dataset.count || 0);
+    count++;
+    element.dataset.count = count;
+    element.innerText = element.innerText.split(" —")[0] + " — " + count;
+  }
 
-function toggleDark(){
- document.body.classList.toggle('dark');
-}
+  function toggleDark() {
+    document.body.classList.toggle("dark");
+  }
 
-function favorite(text){
- let list=JSON.parse(localStorage.getItem('favorites')||'[]');
+  function searchContent(value) {
+    value = value.trim().toLowerCase();
 
- if(!list.includes(text)){
-   list.push(text);
-   localStorage.setItem('favorites',JSON.stringify(list));
- }
+    document.querySelectorAll(".card, section").forEach(function(item) {
+      if (!value || item.innerText.toLowerCase().includes(value)) {
+        item.style.display = "";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  }
 
- showFavorites();
- alert('تم الحفظ في المفضلة ❤️');
-}
-
-function showFavorites(){
- let list=JSON.parse(localStorage.getItem('favorites')||'[]');
- let box=document.getElementById('favoriteList');
-
- if(list.length===0){
-   box.innerHTML='لا توجد عناصر محفوظة بعد.';
-   return;
- }
-
- box.innerHTML=list.map(x=>'<div class="item">'+x+'</div>').join('');
-}
-
-function searchContent(){
- let text=document.getElementById('search').value.toLowerCase();
-
- document.querySelectorAll('.item').forEach(item=>{
-   if(text==='' || item.innerText.toLowerCase().includes(text)){
-     item.style.display='block';
-   }else{
-     item.style.display='none';
-   }
- });
-}
-
-showFavorites();
-
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker.register("./service-worker.js")
+        .then(function() {
+          console.log("تم تشغيل الخدمة بنجاح");
+        })
+        .catch(function(error) {
+          console.log("خطأ في الخدمة:", error);
+        });
+    });
+  }
 </script>
 
 </body>
