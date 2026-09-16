@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
   <link rel="manifest" href="./manifest.json">
-
   <title>بصمة حنين</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -28,7 +25,7 @@
 
     header {
       text-align: center;
-      padding: 25px 15px;
+      padding: 28px 15px;
       background: #fff;
       border-bottom: 1px solid #ddd;
     }
@@ -45,7 +42,7 @@
     }
 
     header p {
-      margin: 8px 0 0;
+      margin: 10px 0 0;
     }
 
     .container {
@@ -91,10 +88,6 @@
       color: #eee;
     }
 
-    .card:hover {
-      transform: translateY(-2px);
-    }
-
     section {
       display: none;
       margin-top: 20px;
@@ -138,8 +131,12 @@
 
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 30px 15px;
       color: #777;
+    }
+
+    body.dark footer {
+      color: #aaa;
     }
 
     @media (max-width: 500px) {
@@ -153,8 +150,8 @@
 <body>
 
 <header>
-  <h1>بصمة حنين</h1>
-  <p>مساحة صغيرة لذكر الله والطمأنينة 🌿</p>
+  <h1>بصمة حنين 🤍</h1>
+  <p>مساحة صغيرة لذكر الله والطمأنينة</p>
 </header>
 
 <div class="container">
@@ -174,6 +171,7 @@
     <button class="card" onclick="openSection('ayah')">✨ آية اليوم</button>
     <button class="card" onclick="openSection('good')">💚 أعمال صالحة</button>
     <button class="card" onclick="openSection('favorites')">⭐ المفضلة</button>
+    <button class="card" onclick="openSection('dedication')">🤍 الإهداء</button>
     <button class="card" onclick="toggleDark()">🌙 الوضع الليلي</button>
   </div>
 
@@ -188,34 +186,18 @@
     <button class="back" onclick="closeSections()">← العودة</button>
     <h2>🌿 الأذكار</h2>
 
-    <div class="dhikr" onclick="countDhikr(this)">
-      سبحان الله
-    </div>
-
-    <div class="dhikr" onclick="countDhikr(this)">
-      الحمد لله
-    </div>
-
-    <div class="dhikr" onclick="countDhikr(this)">
-      الله أكبر
-    </div>
-
-    <div class="dhikr" onclick="countDhikr(this)">
-      لا إله إلا الله
-    </div>
+    <div class="dhikr" onclick="countDhikr(this)">سبحان الله</div>
+    <div class="dhikr" onclick="countDhikr(this)">الحمد لله</div>
+    <div class="dhikr" onclick="countDhikr(this)">الله أكبر</div>
+    <div class="dhikr" onclick="countDhikr(this)">لا إله إلا الله</div>
   </section>
 
   <section id="duaa">
     <button class="back" onclick="closeSections()">← العودة</button>
     <h2>🤲 الأدعية</h2>
 
-    <p>
-      اللهم اجعل في قلبي نورًا، وفي صدري راحة، وفي أيامي بركة.
-    </p>
-
-    <p>
-      ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار.
-    </p>
+    <p>اللهم اجعل في قلبي نورًا، وفي صدري راحة، وفي أيامي بركة.</p>
+    <p>ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار.</p>
   </section>
 
   <section id="books">
@@ -231,9 +213,8 @@
   <section id="ayah">
     <button class="back" onclick="closeSections()">← العودة</button>
     <h2>✨ آية اليوم</h2>
-    <p>
-      ﴿فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا﴾
-    </p>
+
+    <p>﴿فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا﴾</p>
   </section>
 
   <section id="good">
@@ -250,7 +231,55 @@
   <section id="favorites">
     <button class="back" onclick="closeSections()">← العودة</button>
     <h2>⭐ المفضلة</h2>
-    <p>يمكنكِ إضافة الأشياء التي تحبين الرجوع إليها هنا لاحقًا.</p>
+
+    <p>يمكنكِ الاحتفاظ هنا بالأشياء التي تحبين الرجوع إليها.</p>
+  </section>
+
+  <section id="dedication">
+    <button class="back" onclick="closeSections()">← العودة</button>
+
+    <h2>🤍 إهداء</h2>
+
+    <p>
+      أهدي هذا التطبيق، <strong>«بصمة حنين»</strong>،
+      صدقةً جاريةً لروح أمي الغالية <strong>خ.ش</strong>،
+      رحمها الله وأسكنها فسيح جناته،
+      وجعل كل خيرٍ يُنتفع به من هذا التطبيق في ميزان حسناتها.
+    </p>
+
+    <p>
+      وإلى أبي الغالي <strong>عبد القادر</strong>،
+      شكرًا وتقديرًا ومحبةً من القلب.
+      أسأل الله أن يديمه لنا، ويحفظه ويبارك في عمره وصحته،
+      ويجزيه عني كل خير. 🤍
+    </p>
+
+    <p>
+      وإلى أختي الصغيرة <strong>أم كلثوم</strong>،
+      لكِ من القلب محبة وامتنان،
+      وأسأل الله أن يحفظكِ ويسعد قلبكِ ويكتب لكِ الخير.
+    </p>
+
+    <p>
+      وأتقدم بالشكر والتقدير لكل من ساهم في نشر
+      <strong>«بصمة حنين»</strong>،
+      أو دلّ عليها، أو انتفع بما فيها،
+      أو ساعد في وصولها إلى غيره.
+    </p>
+
+    <p>
+      أسأل الله أن يجعل هذا العمل خالصًا لوجهه الكريم،
+      وأن يجعله صدقةً جاريةً لا ينقطع أجرها،
+      وأن يرحم أمي، ويحفظ أبي وأختي،
+      ويكتب الأجر لكل من ساهم في هذا العمل ونشر الخير. 🤍
+    </p>
+
+    <p>
+      <strong>
+        رحمكِ الله يا أمي،
+        وجعل «بصمة حنين» أثرًا طيبًا يبقى.
+      </strong>
+    </p>
   </section>
 
 </div>
@@ -265,12 +294,15 @@
       section.classList.remove("active");
     });
 
-    document.getElementById(id).classList.add("active");
+    const section = document.getElementById(id);
 
-    window.scrollTo({
-      top: document.getElementById(id).offsetTop - 20,
-      behavior: "smooth"
-    });
+    if (section) {
+      section.classList.add("active");
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
   }
 
   function closeSections() {
@@ -282,8 +314,13 @@
   function countDhikr(element) {
     let count = Number(element.dataset.count || 0);
     count++;
+
     element.dataset.count = count;
-    element.innerText = element.innerText.split(" —")[0] + " — " + count;
+
+    const original = element.dataset.original || element.innerText;
+    element.dataset.original = original;
+
+    element.innerText = original + " — " + count;
   }
 
   function toggleDark() {
@@ -293,12 +330,11 @@
   function searchContent(value) {
     value = value.trim().toLowerCase();
 
-    document.querySelectorAll(".card, section").forEach(function(item) {
-      if (!value || item.innerText.toLowerCase().includes(value)) {
-        item.style.display = "";
-      } else {
-        item.style.display = "none";
-      }
+    document.querySelectorAll(".card").forEach(function(card) {
+      const text = card.innerText.toLowerCase();
+
+      card.style.display =
+        !value || text.includes(value) ? "" : "none";
     });
   }
 
