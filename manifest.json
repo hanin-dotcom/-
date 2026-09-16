@@ -1,11 +1,14 @@
 {
   "name": "بصمة حنين",
   "short_name": "بصمة حنين",
+  "id": "com.bismathanin.app",
   "description": "ذكرٌ يبقى، وأثرٌ لا يزول",
-  "start_url": "./",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#f5f7f2",
   "theme_color": "#1f5c45",
   "dir": "rtl",
-  "lang": "ar"
+  "lang": "ar",
+  "orientation": "portrait-primary"
 }
