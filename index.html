@@ -1,295 +1,391 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>زاد مسلم</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بصمة حنين</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f5f7f2;
+ color:#24352b;
+ transition:.3s
+}
+body.dark{background:#18221d;color:#eee}
+header{
+ background:#1f5c45;
+ color:white;
+ text-align:center;
+ padding:28px 15px;
+}
+header h1{margin:0;font-size:34px}
+header p{margin:8px 0 0}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7f2;
-      color: #24352b;
-    }
+.container{max-width:900px;margin:auto;padding:18px}
 
-    header {
-      background: #1f5c45;
-      color: white;
-      text-align: center;
-      padding: 30px 15px;
-    }
+.card,.dedication,.content{
+ background:white;
+ border-radius:18px;
+ padding:20px;
+ margin-bottom:18px;
+ box-shadow:0 3px 12px rgba(0,0,0,.08)
+}
+.dark .card,.dark .dedication,.dark .content{
+ background:#25332b;color:#eee
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 34px;
-    }
+.dedication{text-align:center;line-height:2}
+.dedication h2{color:#1f5c45}
 
-    header p {
-      margin: 10px 0 0;
-      font-size: 17px;
-    }
+.menu{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:14px
+}
+.card{text-align:center;cursor:pointer}
+.card:hover{transform:translateY(-3px)}
+.icon{font-size:38px}
+.card h3{color:#1f5c45;margin:8px}
+.dark .card h3{color:#8ed0af}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+.content{display:none;line-height:2}
+.content h2{text-align:center;color:#1f5c45}
 
-    .dedication {
-      background: white;
-      border-radius: 18px;
-      padding: 25px 20px;
-      margin-bottom: 25px;
-      text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      line-height: 2;
-    }
+.item{
+ background:#f0f5f0;
+ border-radius:12px;
+ padding:15px;
+ margin:10px 0;
+ text-align:center
+}
+.dark .item{background:#314139}
 
-    .dedication h2 {
-      color: #1f5c45;
-      margin-top: 0;
-    }
+button{
+ border:0;
+ border-radius:10px;
+ padding:11px 18px;
+ background:#1f5c45;
+ color:white;
+ font-size:15px;
+ margin:5px;
+ cursor:pointer
+}
 
-    .dedication p {
-      margin: 8px 0;
-    }
+.search{
+ width:100%;
+ padding:13px;
+ border:1px solid #ccc;
+ border-radius:10px;
+ margin-bottom:15px;
+ font-size:16px
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 15px;
-      padding: 25px 15px;
-      text-align: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .icon {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    .card h3 {
-      margin: 8px 0;
-      color: #1f5c45;
-    }
-
-    .card p {
-      color: #666;
-      font-size: 14px;
-    }
-
-    .content {
-      display: none;
-      background: white;
-      margin-top: 25px;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .content h2 {
-      color: #1f5c45;
-      text-align: center;
-    }
-
-    .dhikr {
-      background: #f0f5f0;
-      padding: 18px;
-      border-radius: 12px;
-      margin: 12px 0;
-      line-height: 2;
-      text-align: center;
-    }
-
-    button {
-      background: #1f5c45;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 10px;
-      color: #777;
-    }
-  </style>
+footer{text-align:center;padding:25px;color:#777}
+.small{font-size:14px;color:#777}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🌙 زاد مسلم</h1>
-    <p>رفيقك اليومي في طريق الخير</p>
-  </header>
+<header>
+<h1>🌙 بصمة حنين</h1>
+<p>ذكرٌ يبقى، وأثرٌ لا يزول 🤍</p>
+</header>
 
-  <div class="container">
+<div class="container">
 
-    <div class="dedication">
-      <h2>🌿 إهداء</h2>
+<!-- الإهداء -->
+<section class="dedication">
+<h2>🌿 إهداء</h2>
 
-      <p><strong>إلى والدَيّ الغاليين</strong></p>
+<p><strong>إلى والدَيّ الغاليين</strong></p>
 
-      <p>
-        إلى أمي الغالية، <strong>ش.خ</strong> 🤍<br>
-        رحمها الله رحمةً واسعة وأسكنها فسيح جناته.
-      </p>
+<p>
+إلى أمي الغالية <strong>ش.خ</strong> 🤍<br>
+رحمها الله رحمةً واسعة وأسكنها فسيح جناته.
+</p>
 
-      <p>
-        وإلى أبي الغالي، <strong>aek .meb</strong> 🤍<br>
-        أدامه الله وحفظه وبارك في عمره.
-      </p>
+<p>
+وإلى أبي الغالي <strong>aek .meb</strong> 🤍<br>
+أدامه الله وحفظه وبارك في عمره.
+</p>
 
-      <p>
-        وإلى نفسي، 🤍<br>
-        إن توفاني الله، فأسأل الله أن يجعل هذا العمل
-        صدقةً جاريةً عني، وأن يتقبله مني.
-      </p>
+<p>
+وإلى نفسي 🤍<br>
+إن توفاني الله، فأسأل الله أن يجعل هذا العمل
+صدقةً جاريةً عني، وأن يتقبله مني.
+</p>
 
-      <p>🤲 اللهم اجعل هذا العمل خالصًا لوجهك الكريم.</p>
-    </div>
+<p>🤲 اللهم اجعلها بصمة خير وأثرًا طيبًا.</p>
+</section>
 
-    <div class="cards">
+<!-- البحث -->
+<input
+ class="search"
+ id="search"
+ type="text"
+ placeholder="🔍 ابحثي في بصمة حنين..."
+ onkeyup="searchContent()">
 
-      <div class="card" onclick="showContent('quran')">
-        <div class="icon">📖</div>
-        <h3>القرآن الكريم</h3>
-        <p>اقرأ وتدبر كلام الله</p>
-      </div>
+<!-- القائمة -->
+<div class="menu">
 
-      <div class="card" onclick="showContent('adhkar')">
-        <div class="icon">📿</div>
-        <h3>الأذكار</h3>
-        <p>أذكار الصباح والمساء</p>
-      </div>
+<div class="card" onclick="openSection('quran')">
+<div class="icon">📖</div>
+<h3>القرآن الكريم</h3>
+<p>آيات للتدبر</p>
+</div>
 
-      <div class="card" onclick="showContent('prayer')">
-        <div class="icon">🕌</div>
-        <h3>الصلاة</h3>
-        <p>تذكير بأوقات الصلاة</p>
-      </div>
+<div class="card" onclick="openSection('adhkar')">
+<div class="icon">📿</div>
+<h3>أذكاري</h3>
+<p>أذكار وأعداد التسبيح</p>
+</div>
 
-      <div class="card" onclick="showContent('duaa')">
-        <div class="icon">🤲</div>
-        <h3>الأدعية</h3>
-        <p>مجموعة من الأدعية</p>
-      </div>
+<div class="card" onclick="openSection('duaa')">
+<div class="icon">🤲</div>
+<h3>دعائي اليوم</h3>
+<p>أدعية مختارة</p>
+</div>
 
-    </div>
+<div class="card" onclick="openSection('books')">
+<div class="icon">📚</div>
+<h3>كتب دينية</h3>
+<p>كتب مقترحة للقراءة</p>
+</div>
 
-    <div id="quran" class="content">
-      <h2>📖 القرآن الكريم</h2>
-      <div class="dhikr">
-        <p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-        <p>الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</p>
-        <p>الرَّحْمَٰنِ الرَّحِيمِ</p>
-        <p>مَالِكِ يَوْمِ الدِّينِ</p>
-      </div>
-    </div>
+<div class="card" onclick="openSection('ayah')">
+<div class="icon">✨</div>
+<h3>آية اليوم</h3>
+<p>آية للتدبر</p>
+</div>
 
-    <div id="adhkar" class="content">
-      <h2>📿 الأذكار</h2>
+<div class="card" onclick="openSection('good')">
+<div class="icon">🌿</div>
+<h3>أعمال صالحة</h3>
+<p>أفكار للخير</p>
+</div>
 
-      <div class="dhikr">
-        <p>سبحان الله وبحمده</p>
-        <button onclick="countDhikr()">تسبيح</button>
-        <p id="counter">0</p>
-      </div>
+<div class="card" onclick="openSection('favorites')">
+<div class="icon">❤️</div>
+<h3>المفضلة</h3>
+<p>ما حفظته</p>
+</div>
 
-      <div class="dhikr">
-        <p>أستغفر الله</p>
-      </div>
+<div class="card" onclick="toggleDark()">
+<div class="icon">🌙</div>
+<h3>الوضع الليلي</h3>
+<p>راحة للعين</p>
+</div>
 
-      <div class="dhikr">
-        <p>لا إله إلا الله وحده لا شريك له</p>
-      </div>
-    </div>
+</div>
 
-    <div id="prayer" class="content">
-      <h2>🕌 الصلاة</h2>
+<!-- القرآن -->
+<section id="quran" class="content">
+<h2>📖 القرآن الكريم</h2>
 
-      <div class="dhikr">
-        <p>الفجر: 05:00</p>
-        <p>الظهر: 13:00</p>
-        <p>العصر: 16:30</p>
-        <p>المغرب: 19:15</p>
-        <p>العشاء: 20:45</p>
-      </div>
+<div class="item">
+<p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+<p>
+الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝
+الرَّحْمَٰنِ الرَّحِيمِ ۝
+مَالِكِ يَوْمِ الدِّينِ
+</p>
+<button onclick="favorite('سورة الفاتحة')">❤️ حفظ</button>
+</div>
 
-      <p style="text-align:center;">
-        أوقات الصلاة الحالية تجريبية، وسنضيف لاحقًا الأوقات الحقيقية حسب المدينة.
-      </p>
-    </div>
+<button onclick="closeSections()">إغلاق</button>
+</section>
 
-    <div id="duaa" class="content">
-      <h2>🤲 الأدعية</h2>
+<!-- الأذكار -->
+<section id="adhkar" class="content">
+<h2>📿 أذكاري</h2>
 
-      <div class="dhikr">
-        <p>
-          رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً
-          وَفِي الْآخِرَةِ حَسَنَةً
-          وَقِنَا عَذَابَ النَّارِ
-        </p>
-      </div>
+<div class="item">
+<p>سبحان الله وبحمده</p>
+<button onclick="countDhikr()">تسبيح</button>
+<p>العدد: <strong id="counter">0</strong></p>
+</div>
 
-      <div class="dhikr">
-        <p>رَبِّ زِدْنِي عِلْمًا</p>
-      </div>
+<div class="item">
+<p>أستغفر الله وأتوب إليه</p>
+<button onclick="favorite('أستغفر الله وأتوب إليه')">❤️ حفظ</button>
+</div>
 
-      <div class="dhikr">
-        <p>اللهم اغفر لي وارحمني واهدني وعافني وارزقني</p>
-      </div>
-    </div>
+<div class="item">
+<p>لا إله إلا الله وحده لا شريك له</p>
+<button onclick="favorite('لا إله إلا الله وحده لا شريك له')">❤️ حفظ</button>
+</div>
 
-  </div>
+<button onclick="closeSections()">إغلاق</button>
+</section>
 
-  <footer>
-    <p>© 2026 زاد مسلم</p>
-    <p>اللهم اجعل هذا العمل نافعًا ومباركًا 🤲</p>
-  </footer>
+<!-- الدعاء -->
+<section id="duaa" class="content">
+<h2>🤲 دعائي اليوم</h2>
 
-  <script>
-    function showContent(id) {
-      const sections = document.querySelectorAll('.content');
+<div class="item">
+<p>
+رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً
+وَفِي الْآخِرَةِ حَسَنَةً
+وَقِنَا عَذَابَ النَّارِ
+</p>
+<button onclick="favorite('ربنا آتنا في الدنيا حسنة')">❤️ حفظ</button>
+</div>
 
-      sections.forEach(section => {
-        section.style.display = 'none';
-      });
+<div class="item">
+<p>رَبِّ زِدْنِي عِلْمًا</p>
+<button onclick="favorite('رب زدني علمًا')">❤️ حفظ</button>
+</div>
 
-      document.getElementById(id).style.display = 'block';
+<button onclick="closeSections()">إغلاق</button>
+</section>
 
-      window.scrollTo({
-        top: document.getElementById(id).offsetTop - 20,
-        behavior: 'smooth'
-      });
-    }
+<!-- الكتب -->
+<section id="books" class="content">
+<h2>📚 كتب دينية</h2>
 
-    let count = 0;
+<div class="item">
+<strong>الرحيق المختوم</strong>
+<p>كتاب في السيرة النبوية.</p>
+</div>
 
-    function countDhikr() {
-      count++;
-      document.getElementById('counter').textContent = count;
-    }
-  </script>
+<div class="item">
+<strong>رياض الصالحين</strong>
+<p>مجموعة من الأحاديث في أبواب متنوعة من الخير والأخلاق والعبادات.</p>
+</div>
+
+<div class="item">
+<strong>الأربعون النووية</strong>
+<p>أحاديث جامعة في أصول الدين وآدابه.</p>
+</div>
+
+<div class="item">
+<strong>حصن المسلم</strong>
+<p>كتاب يجمع عددًا من الأذكار والأدعية.</p>
+</div>
+
+<button onclick="closeSections()">إغلاق</button>
+</section>
+
+<!-- آية اليوم -->
+<section id="ayah" class="content">
+<h2>✨ آية اليوم</h2>
+
+<div class="item">
+<p>
+﴿ فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝
+إِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾
+</p>
+<p class="small">سورة الشرح</p>
+<button onclick="favorite('فإن مع العسر يسرًا')">❤️ حفظ</button>
+</div>
+
+<button onclick="closeSections()">إغلاق</button>
+</section>
+
+<!-- أعمال صالحة -->
+<section id="good" class="content">
+<h2>🌿 أعمال صالحة</h2>
+
+<div class="item">🤍 بر الوالدين</div>
+<div class="item">🤲 الدعاء للوالدين</div>
+<div class="item">💧 سقي الماء</div>
+<div class="item">😊 إدخال السرور على مسلم</div>
+<div class="item">📖 قراءة القرآن</div>
+<div class="item">❤️ الصدقة ولو بالقليل</div>
+
+<button onclick="closeSections()">إغلاق</button>
+</section>
+
+<!-- المفضلة -->
+<section id="favorites" class="content">
+<h2>❤️ المفضلة</h2>
+<div id="favoriteList" class="item">
+لا توجد عناصر محفوظة بعد.
+</div>
+<button onclick="closeSections()">إغلاق</button>
+</section>
+
+</div>
+
+<footer>
+<p>🌙 بصمة حنين</p>
+<p>ذكرٌ يبقى، وأثرٌ لا يزول 🤍</p>
+</footer>
+
+<script>
+
+let count = 0;
+
+function openSection(id){
+ document.querySelectorAll('.content').forEach(x=>{
+   x.style.display='none';
+ });
+ document.getElementById(id).style.display='block';
+ window.scrollTo({
+   top:document.getElementById(id).offsetTop-20,
+   behavior:'smooth'
+ });
+}
+
+function closeSections(){
+ document.querySelectorAll('.content').forEach(x=>{
+   x.style.display='none';
+ });
+}
+
+function countDhikr(){
+ count++;
+ document.getElementById('counter').textContent=count;
+}
+
+function toggleDark(){
+ document.body.classList.toggle('dark');
+}
+
+function favorite(text){
+ let list=JSON.parse(localStorage.getItem('favorites')||'[]');
+
+ if(!list.includes(text)){
+   list.push(text);
+   localStorage.setItem('favorites',JSON.stringify(list));
+ }
+
+ showFavorites();
+ alert('تم الحفظ في المفضلة ❤️');
+}
+
+function showFavorites(){
+ let list=JSON.parse(localStorage.getItem('favorites')||'[]');
+ let box=document.getElementById('favoriteList');
+
+ if(list.length===0){
+   box.innerHTML='لا توجد عناصر محفوظة بعد.';
+   return;
+ }
+
+ box.innerHTML=list.map(x=>'<div class="item">'+x+'</div>').join('');
+}
+
+function searchContent(){
+ let text=document.getElementById('search').value.toLowerCase();
+
+ document.querySelectorAll('.item').forEach(item=>{
+   if(text==='' || item.innerText.toLowerCase().includes(text)){
+     item.style.display='block';
+   }else{
+     item.style.display='none';
+   }
+ });
+}
+
+showFavorites();
+
+</script>
 
 </body>
 </html>
